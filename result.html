@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>Square finder</title>
+<style>
+        * {
+        font-size: 40px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: #161925;
+    }
+    body{
+        background-color:#C1292E
+    }
+    .btn{
+        width: 50%;
+    }
+    a{
+        text-decoration: none;
+    }
+</style>
+<script>
+function compute()
+{
+event.preventDefault()
+let num= document.getElementById("num");
+let msg= document.getElementById("msg");
+if (num.value == "")
+{
+alert("You did not enter any number");
+msg.innerHTML="";
+num.focus();
+return;
+}
+let n=parseFloat(num.value);
+let r=n*n;
+localStorage.seItem("res",r);
+window.location.href="result.html";
+}
+</script>
+</head>
+<body>
+<center>
+<h1>result page</h1>
+<h2 id="msg"></h2>
+<script>
+let msg = document.getElementById("msg");
+let r = localStorage.getItem("res");
+if(r==null)
+{
+msg.innerHTML="result not found";
+}
+else
+{
+msg.innerHTML= r;
+}
+</script>
+<br><br>
+<a href="index.html">Home</a>
+</center>
+</body>
+</html>
